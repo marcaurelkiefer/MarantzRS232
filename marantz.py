@@ -41,3 +41,9 @@ class Marantz(object):
     
     def volume_status(self):
          return self.command("@VOL:?")
+    
+    def source_status(self):
+        return self.command("@SRC:?")
+    
+    def source_select(self, source):
+        return self.command("@SRC:" + source)
