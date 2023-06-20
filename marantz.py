@@ -11,9 +11,19 @@ class Marantz(object):
     def write(self, command):
         self.ser.write((command+"\r").encode())
 
+    def command(self, command):
+        self.write(command)
+        return self.read()
+
     def read(self):
         return self.ser.read_until(b"\r")
     
-    def test(self):
-        self.write("@PWR:?")
-        print(self.read())
+    def power_status(self):
+        return self.command("@PWR:?")
+
+    def power_on(self):
+        return self.command("@PWR:2")
+    
+    def power_off(self):
+        return self.command("@PWR:1")
+        
