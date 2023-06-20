@@ -26,4 +26,18 @@ class Marantz(object):
     
     def power_off(self):
         return self.command("@PWR:1")
+    
+    def volume_up(self):
+        return self.command("@VOL:1")
+    
+    def volume_down(self):
+        return self.command("@VOL:2")
         
+    def volume_up_fast(self):
+        return self.command("@VOL:3")
+    
+    def volume_down_fast(self):
+        return self.command("@VOL:4")
+    
+    def volume_status(self):
+         return self.command("@VOL:?")
